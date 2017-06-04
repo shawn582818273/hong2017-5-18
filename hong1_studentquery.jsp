@@ -54,7 +54,7 @@ JDBC 驱动名及数据库 URL
 useUnicode=true&characterEncoding=utf-8 防止中文乱码
  -->
 <%
-String strConn="jdbc:mysql://localhost:3306/hong"; 
+String strConn="jdbc:mysql://localhost:3306/hong";  
 String strUser="root"; 
 String strPassword="123456";
 Connection conn1=DriverManager.getConnection(strConn,strUser,strPassword);

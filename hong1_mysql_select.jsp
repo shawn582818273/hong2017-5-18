@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=GB2312"
-    pageEncoding="GB2312"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -15,24 +15,20 @@
 	<p><%String account = request.getParameter("id");%></p>
 	<p><%String pwd = request.getParameter("pwd");%></p>
 	<p><%
-	// ½â¾öÖÐÎÄÂÒÂëµÄÎÊÌâ
-	String identity = new String((request.getParameter("identity")).getBytes("ISO-8859-1"),"UTF-8");
+	// è§£å†³ä¸­æ–‡ä¹±ç çš„é—®é¢˜
+	//String identity = new String((request.getParameter("identity")).getBytes("ISO-8859-1"),"UTF-8");
+	String identity=request.getParameter("identity");
 	%>
 	<p><%  String SQ = "select * from users where number="+account+" and password="+pwd+" and identity='"+identity+"'";
 	%>
 	</p>
-	 <%=SQ%>
-	 <%=account%>
-	 <%=pwd%>
-	 <%=identity%>
-	 <%=request.getParameter("id")%>
-	<!--Á½ÖÖ×¢ÊÍ --!>
+	<!--ä¸¤ç§æ³¨é‡Š --!>
 	<%--=identity --%>
 	<!--  String SQ = "select * from users where number="+account+" and password="+pwd+" and identity='"+identity+"'"--!>
 	<!--
-	JDBC Çý¶¯Ãû¼°Êý¾Ý¿â URL 
-	Êý¾Ý¿âµÄÓÃ»§ÃûÓëÃÜÂë£¬ÐèÒª¸ù¾Ý×Ô¼ºµÄÉèÖÃ
-	useUnicode=true&characterEncoding=utf-8 ·ÀÖ¹ÖÐÎÄÂÒÂë
+	JDBC é©±åŠ¨ååŠæ•°æ®åº“ URL 
+	æ•°æ®åº“çš„ç”¨æˆ·åä¸Žå¯†ç ï¼Œéœ€è¦æ ¹æ®è‡ªå·±çš„è®¾ç½®
+	useUnicode=true&characterEncoding=utf-8 é˜²æ­¢ä¸­æ–‡ä¹±ç 
 	 -->
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/hong?useUnicode=true&characterEncoding=utf-8"
@@ -41,6 +37,7 @@
 <sql:query dataSource="${snapshot}" var="result">
 select now();
 </sql:query>
+
 <%
 String strConn="jdbc:mysql://localhost:3306/hong"; 
 String strUser="root"; 
@@ -50,43 +47,64 @@ Statement stat=conn.createStatement();
 String strSql="SELECT * from users";  
 ResultSet rs=stat.executeQuery(SQ);   
 if(rs.next())
-{ out.println( "welcome") ;
-out.println(rs.getString("number"));  
-%>
-<%
-	request.getSession().setAttribute("sessionname",account);     //ÓÃSession±£´æÓÃ»§Ãû  
+{ 	if(identity.compareTo("manager")==0)
+	response.sendRedirect("dao0.jsp");
+	if(identity.compareTo("teacher")==0)
+	response.sendRedirect("dao0.jsp");
+	if(identity.compareTo("student")==0)
+	response.sendRedirect("dao0.jsp");
+	if(identity.compareTo("systemmanager")==0)
+	response.sendRedirect("dao0.jsp");
+	/*response.sendRedirect("http://www.baidu.com");
+	response.sendRedirect("http://www.163.com");
+	out.println(identity.length()) ;
+	out.println(identity.compareTo("manager")) ;
+	out.println(rs.getString("number")); 
+	*/
+	request.getSession().setAttribute("sessionname",account);     //ç”¨Sessionä¿å­˜ç”¨æˆ·å  
 	request.getSession().setAttribute("sessionpwd",pwd);  
 	request.getSession().setAttribute("sessionidentity",identity); 
 	request.getSession().setAttribute("sessionstate","logined"); 
-	//±£´æÃÜÂë  
-	// ÖØ¶¨Ïòµ½ÐÂµØÖ·
-   	String site = new String("hong1_studentlogined.jsp");
+	//ä¿å­˜å¯†ç   
+	// é‡å®šå‘åˆ°æ–°åœ°å€
+	/*String site1 = new String("dao1.jsp");
+   	String site3 = new String("dao3.jsp");
+   	String site8 = new String("dao8.jsp");
    	response.setStatus(response.SC_MOVED_TEMPORARILY);
-   	response.setHeader("Location", site); 
-   
+   	if(identity=="manager")
+   	{out.println("succuess") ;
+    response.sendRedirect("http://www.baidu.com");}
+   	else if(identity=="teacher")
+   	{response.setStatus(response.SC_MOVED_TEMPORARILY);
+   	response.setHeader("Location", site8); }
+   	else if(identity=="student")
+   	{response.setStatus(response.SC_MOVED_TEMPORARILY);
+   	response.setHeader("Location", site3); }
+   	*/
 %>
+<%-- 
 <jsp:forward page="hong1_studentlogined.jsp">
    <jsp:param name="account" value="<%=account%>"/>
 </jsp:forward>
-
+--%>
 <%
 }
 else{
 %>
 	<script type="text/javascript" language="javascript">
-		alert('ÓÃ»§Ãû»òÃÜÂë´íÎó£¡');                                           // µ¯³ö´íÎóÐÅÏ¢
-		window.location='hong1.jsp' ;                            // Ìø×ªµ½µÇÂ¼½çÃæ
+		alert('ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯ï¼');                                           // å¼¹å‡ºé”™è¯¯ä¿¡æ¯
+		window.location='dao2.jsp' ;                            // è·³è½¬åˆ°ç™»å½•ç•Œé¢
 	</script>	
 <%
 }
 	/* while(rs.next())  
 	{  
-	    //ÒÀ¾ÝÊý¾Ý¿âÖÐµÄ×Ö¶ÎÃû´òÓ¡Êý¾Ý  
+	    //ä¾æ®æ•°æ®åº“ä¸­çš„å­—æ®µåæ‰“å°æ•°æ®  
 	    out.println(rs.getString("number"));  
 	    out.println(rs.getString("password"));  
 	    out.println(rs.getString("identity"));  
 	}*/
-//¹Ø±ÕÁ¬½Ó  
+//å…³é—­è¿žæŽ¥  
 rs.close();  
 stat.close();  
 conn.close();   

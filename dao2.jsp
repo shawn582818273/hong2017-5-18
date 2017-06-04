@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-    <title>Bootstrap 实例 - 倒置的导航栏</title>
+    <title>教室预约系统</title>
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
@@ -34,22 +34,35 @@
 	</script>  
 </head>
 <body>
-
+<%request.getSession().setAttribute("sessionstate","unlogined"); %>
+<%request.getSession().setAttribute("sessionname",null); %>
+<%request.getSession().setAttribute("sessionidentity",null); %>
+<%request.getSession().setAttribute("sessionpwd",null);     //用Session保存用户名  %>
+<%request.getSession().setAttribute("sessiontimeframe",null);     //用Session保存用户名  %>
+<%request.getSession().setAttribute("sessionmaxhold",null);     //用Session保存用户名%>
+<%request.getSession().setAttribute("sessionexcuse",null);     //用Session保存用户名%>
 <nav class="navbar navbar-inverse" role="navigation">
-	<div class="container-fluid">
+	<div class="container">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">Home</a>
+        <a class="navbar-brand" href="dao0.jsp">Home</a>
     </div>
     <div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Login</a></li>
+            <%if(request.getSession().getAttribute("sessionstate")!="logined") {%>
+            <li class="active"><a href="dao2.jsp">Login</a></li>
+            <%} %>
+            <%if(request.getSession().getAttribute("sessionstate")=="logined") {%>
             <li ><a href="dao3.jsp">Appointment</a></li>
+            <%} %>
+            <li ><a href="dao4.jsp">About</a></li>
+            <li ><a href="register.jsp">Register</a></li>
+            <%if ( request.getSession().getAttribute("sessionstate")=="logined" && (String)request.getSession().getAttribute("sessionidentity")=="manager") {%>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     About <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">help</a></li>
+                    <li><a href="dao4.jsp">help</a></li>
                     <li><a href="#">EJB</a></li>
                     <li><a href="#">Jasper Report</a></li>
                     <li class="divider"></li>
@@ -58,7 +71,13 @@
                     <li><a href="#">另一个分离的链接</a></li>
                 </ul>
             </li>
+            <%} %>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <%if(request.getSession().getAttribute("sessionstate")=="logined") {%>
+            <li><a href="dao2.jsp">Logout</a></li>
+            </ul>
+            <%} %>
     </div>
 	</div>
 </nav>
@@ -73,16 +92,18 @@
 	<form id="form1" name="form1" method="post" action="hong1_mysql_select.jsp" onsubmit="return check()">
 	<div align="center" class="STYLE3">
 	  <p align="center">
-		  <span class="btn btn-large btn-success"> 账号</span>
+		  <span class="btn btn-large btn-success" > 账号</span>
 		  <abbr title="请输入8位账号">
-		  <input name="id" type="text" class="STYLE3" size="12" />
+		  <input name="id" type="text" class="STYLE3" size="12" style="border-radius:5px;" />
 		  </abbr>
 	  </p>
 	  <p align="center">
-		  <span class="btn btn-primary btn-large"> 密码</span>
+		  <span class="btn btn-large btn-success"> 密码</span>
 		  <abbr title="请输入密码">
-		  <input name="pwd" type="password" class="STYLE3" size="12" /></abbr>
+		  <input name="pwd" type="password" class="STYLE3" size="12" style="border-radius:5px;"/></abbr>
+		  
 	  </p>
+	  <a href="sendmail.jsp" class="btn btn-xs btn-danger">forget password?</a>
 	  <label></label>
 	  <p>
 		  <label>
@@ -95,10 +116,19 @@
 		  <input type="radio"  name="identity" value="manager" />
 		  <span class="btn btn-primary btn-large">管理员</span><br />
 	  </label>
+	  <label>
+		  <input type="radio"  name="identity" value="systemmanager" />
+		  <span class="btn btn-primary btn-large">系统管理员</span><br />
+	  </label>
 	  <br />
 	  <label></label>
 	  <label></label>
-	  <input name="Submit"  class="btn btn-primary btn-large" type="submit" class="STYLE3"  />
+	  <input name="Submit"  class="btn btn-large btn-success" type="submit"  value="登录"/>
+	  
+	  <%-- <label>
+		  <input type="button" class="btn btn-large btn-success" onclick="window.location.href='daohang.jsp'" name="注册" value="注册" />
+	  </label>
+	  --%>
 	 <%--onclick="javascript:window.location.href='http://www.baidu.com'" value="登录"  --%>
 	  <br />
 	  </p>
@@ -113,7 +143,7 @@
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <div id="footer">
       <div align="center" class="container">
-        <p  > author: <a href="http://martinbean.co.uk">pengfeihong</a> .</p>
+        <p  > author: <a href="http://www.fo12974829.icoc.me/?_sc=4">pengfeihong</a> .</p>
 </div>
     </div>	
 </body>

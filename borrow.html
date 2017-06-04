@@ -1,0 +1,398 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link type="text/css" rel="stylesheet"
+	href="http://elearning.ustb.edu.cn:80/choose_courses/script/resources/css/ext-all.css">
+<link type="text/css" rel="stylesheet"
+	href="http://elearning.ustb.edu.cn:80/choose_courses/css/mystyle.css?_dc=1493642026776">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="http://elearning.ustb.edu.cn:80/choose_courses/favicon.ico">
+<link rel="Bookmark" href="http://elearning.ustb.edu.cn:80/choose_courses/favicon.ico"> 
+<style type="text/css">
+.divbg { 
+	background-image: url(http://elearning.ustb.edu.cn:80/choose_courses/images/mainBack.jpg);
+	position: absolute;
+	margin: 0px auto;
+	left:50%; margin-left:-642px;
+	top:50%;margin-top:-290px;
+	height:580px; width:1285px;
+}
+.divkuang{
+	position: relative;
+	left: 600px;
+	top: 100px;
+	height:330px; width:713px;font-family:arial;
+	background-image:url(http://elearning.ustb.edu.cn:80/choose_courses/images/biaokuang.png);
+}
+.nbnp {
+    border-style:none;
+    padding:0;
+}
+.mybtn {
+	display: block;
+	background-color:#FFFFFF;
+	border-top-color:#D1D1D1;
+	border-bottom-color:#D1D1D1;
+	border-left-color:#D1D1D1;
+	border-right-color:#D1D1D1;
+	background-image: -moz-linear-gradient(center top , #FFFFFF, #F9F9F9 48%, #E2E2E2 52%, #E7E7E7);
+	font-size:20;
+}
+.mybtn:hover{
+	font-size:10;
+}
+.x-btn-default-small .x-btn-inner {
+    font-size: 13px;
+}
+.x-btn-default-toolbar-small .x-btn-inner{
+	font-size : 13px;
+}
+.x-menu-item-text{
+	font-size : 13px;
+}
+.x-body {
+	font-size : 13px;
+}
+.x-tab button{
+	font-size : 13px;
+}
+.x-panel-header-text-default{
+	font-size : 13px;
+}
+.x-column-header{
+	font-size : 13px;
+	margin : auto;
+}
+</style>
+<script type="text/javascript"
+	src="http://elearning.ustb.edu.cn:80/choose_courses/script/ext-all.js"></script>
+<script type="text/javascript"
+	src="http://elearning.ustb.edu.cn:80/choose_courses/script/locale/ext-lang-zh_CN.js"></script>
+<script type="text/javascript" src="http://elearning.ustb.edu.cn:80/choose_courses/script/json2.js"></script>
+<script type="text/javascript" src="http://elearning.ustb.edu.cn:80/choose_courses/script/Math.uuid.js"></script>
+<script type="text/javascript" src="http://elearning.ustb.edu.cn:80/choose_courses/script/myext.js?_dc=1493642026776"></script>
+<script type="text/javascript" src="http://elearning.ustb.edu.cn:80/choose_courses/script/mainPage.js?_dc=1493642026776"></script>
+<script type="text/javascript" src="http://elearning.ustb.edu.cn:80/choose_courses/script/newpages.js?_dc=1493642026776"></script>
+
+<script type="text/javascript"
+	src="http://elearning.ustb.edu.cn:80/choose_courses/script/myoptiontransferselect.js"></script>
+<script type="text/javascript" src="http://elearning.ustb.edu.cn:80/choose_courses/script/utils.js"></script>
+
+<title>欢迎登录北京科技大学教务管理系统</title>
+<base href="http://elearning.ustb.edu.cn:80/choose_courses/" />
+</head>
+<body style="background-color: #137abe;">
+	<div class="divbg"  id="dlbg">
+	  <div style="font-size:14px; position:relative;left:240px;top:50px; width:930px; height:30px;font-family:arial;">推荐使用FireFox、chrome浏览器。配置较差电脑的浏览器提示脚本繁忙是否终止运行该脚本时请选择“否”，让脚本继续运行。<!-- 请使用IE(9.0及以上)、FireFox、chrome、opera或safari浏览器--></div> 
+	  <div class="divkuang">
+	    <div style="font-size:20px; position:relative;left:60px;top:32px; width:500px; height:30px;font-family:arial">请登录北京科技大学本科教学网</div>
+	     <div style="font-size:14px; position:relative;left:280px;top:30px; width:200px; height:20px;font-family:arial">(密码区分大小写）</div>
+	    <div style="position:relative;left:40px;top:40px; width:360px; height:160px;" id="d_login"></div>
+	  </div>
+	  <div style="position: relative;left: 920px;top:110px;font-family:arial;text-align:left;font-size:12px; width:200px; height:30px">北京科技大学 教务处  版权所有<br/>开发与维护单位：注册中心<br />联系电话：010-62333727<br />(办公和电话接听时间为工作日8:00-11:30,14:00-17:30)</div>
+	</div>
+	<script type="text/javascript">
+		showTips=function(){
+			document.getElementById('d_login').innerHTML='<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">提示：您的浏览器不兼容本站，请更换浏览器访问;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;推荐FireFox、chrome、IE(10.0及以上)或safari;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若为360、搜狗浏览器请切换为高速模式。</span>';
+		};
+		setTimeout("showTips()", 1000);
+	</script>
+	<script type="text/javascript">
+		window.onresize =function(){
+			if(window.g_FormWin){
+				try{
+					window.g_FormWin.lastX=Ext.get('d_login').getX();
+					window.g_FormWin.lastY=Ext.get('d_login').getY();
+					window.g_FormWin.setPosition(window.g_FormWin.lastX+2,window.g_FormWin.lastY+20);
+				}catch(e){}
+			}
+		}; 
+		//创建登录框的函数
+		f_CreateForm = function() {
+			var userNameF = Ext.create('Ext.form.field.Text', {
+				fieldLabel : '学号(教工号)',
+				name : 'username',
+				minLength : 4,
+				maxLength : 18,
+				minLengthText : '最少必须输入4位以上',
+				maxLengthText : '不能超过18个字符',
+				id : 'userNameField'
+			});
+			var passWordF = Ext.create('Ext.form.field.Text', {
+				fieldLabel : '密码',
+				inputType : 'password',
+				name : 'j_password',
+				id : 'passWordField',
+				minLength : 6,
+				maxLength : 50,
+				minLengthText : '最少必须输入6位以上',
+				maxLengthText : '不能超过50个字符',
+				vtype:'alphanum',
+			});
+			typeItems = [];
+			gf_initCodeTableStore([ 'edu.ustb.jwc.web.WebTypeCombo' ]);
+			var type;
+			var types = gcache['g_codeCache']['edu.ustb.jwc.web.WebTypeCombo'].getRange();
+			for ( var t in types) {
+				type = {
+					boxLabel : types[t].get('displayName'),
+					name : 'userType',
+					inputValue : types[t].get('id'),
+				};
+				typeItems.push(type);
+			}
+			var userTypeF = Ext.create('Ext.form.RadioGroup', {
+				fieldLabel : '身份',
+				columns : 2,
+				id : 'userType',
+				labelWidth: 75,
+				items : typeItems
+			});
+			var defaultPro = {
+				lableSeparator : ':',
+				width : 320,
+				labelWidth: 75,
+				allowBlank : false,
+				blankText : '不允许为空',
+				labelAlign : 'left',
+				msgTarget : 'qtip',
+			};
+			Ext.apply(userNameF, defaultPro);
+			Ext.apply(passWordF, defaultPro);
+			return new Ext.form.Panel(
+					{
+						header : false,
+						width : 350,
+						url : 'j_spring_security_check',
+						bodyPadding : 10,
+						frame : true,
+						bodyStyle:'background-color:#ffffff',
+						cls:'nbnp',
+						items : [ userNameF, passWordF, userTypeF ],
+						/* bbar:[{
+							text:'哈哈',
+							width:300,
+							cls:'mybtn',
+							handler:function(){
+								alert('哈哈');
+							}
+						}], */
+						buttons : [
+								{
+									text : '登录',
+									id:'submitbtn',
+									handler : function() {
+										var newUserName = "";
+										if (!userTypeF.getChecked()[0]) {
+											Ext.Msg.alert('提示信息', '必须选择您的身份');
+											return;
+										}
+										try {
+											newUserName += userNameF.getValue()
+													+ ","
+													+ userTypeF.getChecked()[0]
+															.getSubmitData()['userType'];
+										} catch (e) {
+											alert("请刷新浏览器后重新登录！");
+										}
+										//拼接用户名和用户类型
+										if (userNameF.isValid()&&passWordF.isValid()) {
+											//判断用户是否为工作台中的用户，如果不是则提示其刷刷新后重新登录，防止数据混乱
+											if (window.gv['g_UserId']
+													&& window.gv['g_UserId'] != userNameF
+															.getValue()) {
+												Ext.Msg
+														.alert(
+																"提示信息",
+																"您的帐号与当前的帐号不相同，若用新帐号登录请刷新或重启浏览器，若继续操作页面内容必须用   "
+																		+ window.gv['g_UserId']
+																		+ " 登录。");
+												return;
+											}
+											//重新登录的配置对象
+											var loginParam = {
+												url : 'j_spring_security_check',
+												params : {
+													j_username : newUserName,
+													j_password : passWordF
+															.getValue()
+												},
+												callback : function(options,
+														success, response) {
+													wait.close();
+													if (!success) {
+														Ext.Msg.alert('提示信息',
+																'网络连接出错');
+														return;
+													}
+													var obj={};
+													try{
+														obj=Ext.decode(response.responseText);
+														gv['g_newsms'] = obj.newsms;
+														if(obj.func){
+															eval(obj.func);
+															return;
+														}
+													}catch (e) {
+														/* if(!g_FormPanel.noBodyShow){
+															gf_RenderToPanel(response);
+														} */
+													}
+													//清空密码
+													passWordF.reset();
+													//将用户名保存在全局变量中
+													if(!gv['g_UserId']){
+														gv['g_UserId'] = obj.uid?obj.uid:gv['g_UserId'];
+														userNameF.setValue(obj.uid?obj.uid:userNameF.getValue());
+													}
+													//如果已经存在工作窗口
+													if (window.gw['g_MainWin']) {
+														gw['g_HeadPanel'].show();
+														gw['g_StatePanel'].show();
+														gw['g_WorkPanel'].show();
+														if (window.gv['g_ModuleForHide']) {
+															for (var m=0;m<gv['g_ModuleForHide'].length;m++) {
+																try{var t = gv['g_ModuleForHide'].pop(); if(t&&!t.noV){t.noV=true;t.setVisible(true);}}catch(e){};
+															}
+														}
+														g_FormWin.hide();
+														gw['g_StatePanel'].getLoader().load();
+													} else {
+														/* Ext.get('dlbg').dom.style='display:none;';
+														Ext.getBody().dom.style="background-color:#ffffff;"; */
+														Ext.get('dlbg').dom.style.display='none';
+														Ext.getBody().dom.style.backgroundColor='#ffffff';
+														window.g_FormWin.setTitle('请重新登录,登录成功后不会丢失数据');
+														g_FormWin.getHeader().setVisible(true);
+														Ext.getCmp('retB').setVisible(false);
+														Ext.getCmp('regB').setVisible(false);
+														initWorkSpace();
+													}
+													//执行加载后的函数
+													if (window.gw['g_HidePanel'].runAfterDealRelogin) {
+														gw['g_HidePanel']
+																.runAfterDealRelogin(
+																		success,
+																		response);
+													}
+													//执行加载后的函数
+													if (window.gw['g_HidePanel'].runAfterRelogin) {
+														gw['g_HidePanel']
+																.runAfterRelogin(
+																		success,
+																		response);
+													}
+													return;
+
+												}
+											};
+											var wait = Ext.Msg.wait(
+													'请稍候，正在验证账户', '正在登录');
+											//请求
+											Ext.Ajax.request(loginParam);
+										}
+									}
+								},{
+									text : '重置',
+									handler : function() {
+										this.up('form').getForm().reset();
+									}
+								},'-',{
+									text : '忘记密码',
+									id : 'retB',
+									handler : function() {
+										Ext.create(Ext.window.Window, {
+											id : 'retWin',
+											title : '找回密码',
+											modal : true,
+											width : 300,
+											height : 140,
+											resizable : false,
+											bodyPadding: '5 5 0',
+											loader : {
+												url : 'retakePasswordPage.action',
+												autoLoad : true,
+												scripts : true
+											},
+											bbar:[]
+										}).show();
+									}
+								},'-',
+								{
+									text : '注册',
+									id : 'regB',
+									handler : function() {
+										Ext.create(Ext.window.Window, {
+											id : 'regWin',
+											title : '注册',
+											modal : true,
+											width : 360,
+											height : 280,
+											resizable : false,
+											loader : {
+												url : 'registPage.action',
+												autoLoad : true,
+												scripts : true
+											}
+										}).show();
+									}
+								} ]
+					});
+		};
+
+		Ext.onReady(function() {
+			if(Ext.isIE7){//Ext.isIE8||
+				alert('您使用的是IE8或更低的版本，运行本系统时效率很差，推荐使用FireFox或IE10及以上浏览器。');
+				return;
+			}
+			showTips=function(){};
+			window.gv['g_newsms']=0;
+			window.gv['g_jsFiles']=[];
+			var uid='';
+			if(uid){
+				document.getElementById('d_login').innerHTML='<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">提示： 检测到已经登录为用户:'+uid+'，请退出登录后再登录新用户，<a href="j_spring_security_logout">点此退出</a></span>';
+				return;
+			}
+			//如果已有工作窗口，禁用窗口内的内容
+			//如果没有登录框所在窗体就创建一个
+			if (!window.g_FormWin) {
+				g_FormWin = Ext.create('Ext.window.Window', {
+					title : '请登录',
+					//header : false,
+					closable : false,
+					resizable : false,
+					cls:'nbnp'
+				});
+			}
+			//g_FormPanel设为全局变量便于检测
+			g_FormPanel = f_CreateForm();
+			g_FormWin.add(g_FormPanel);
+			//显示登录框
+			g_FormWin.show();
+			g_FormWin.getHeader().setVisible(false);
+			window.g_FormWin.lastX=Ext.get('d_login').getX();
+			window.g_FormWin.lastY=Ext.get('d_login').getY();
+			window.g_FormWin.setPosition(window.g_FormWin.lastX+2,window.g_FormWin.lastY+20);
+			gv['g_repStr']={};
+			gv['g_repStr']['webUrl']='http://elearning.ustb.edu.cn:80/choose_courses/';
+			gv['g_repStr']['yxkXnxq']='2016-2017-2';
+			gv['g_repStr']['tbxXnxq']='2016-2017-2';
+			gv['g_repStr']['gxkZdqz']='0';
+			gv['g_repStr']['bxbxkZdqz']='0';
+			gv['g_repStr']['gxkkclb']='7,8,12'.split(',');
+			gv['g_repStr']['wzykclb']='9'.split(',');
+			gv['g_repStr']['zxkkclb']='5,6,13'.split(',');
+			gv['g_sfqyqz']='0';
+			gv['g_ctkSfkx']='1';
+			gv['g_cxkyxct']='是';
+			gv['g_gxkctkcs']='0';
+		});
+	</script>
+</body>
+</html>
